@@ -50,7 +50,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">Avaleht</a>
+              <a class="nav-link" href="avaleht.html">Avaleht</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Tooted</a>
@@ -70,67 +70,89 @@
     </div>
     </div>
     <div class="row text-center pt-3">
-   <H3>Rahakoguja äriplaan</H3>
+   <H2>KVANTARVUTUS</H2>
+   <h4>!Meie kvantarvuti teeb kolmemõõtmelisi arvutusi!</h4>
     </div>
-    <form action="" method="GET">
+    <form action="#" method="GET">
     <div class="row justify-content-center pt-5">
         <div class="col-sm-2 text-center">
             <div class="form-outline">
-                <label class="form-label" for="typeNumber">Kui palju sul raha on?</label>
-                <input type="number" id="typeNumber" class="form-control" name="toode1" />
+                <label class="form-label fw-bold">Esimene arv
+                </label>
+                <input type="number" class="form-control" name="toode1">
             </div>
         </div>
     </div>
     <div class="row justify-content-center pt-3">
       <div class="col-sm-2 text-center">
           <div class="form-outline">
-              <label class="form-label" for="typeNumber">Kui palju sa sooviksid, et oleks?
+              <label class="form-label fw-bold">Teine arv
               </label>
-              <input type="number" id="typeNumber" class="form-control" name="toode2" />
+              <input type="number" class="form-control" name="toode2">
           </div>
       </div>
 </div>
 <div class="row justify-content-center pt-3">
       <div class="col-sm-2 text-center">
           <div class="form-outline">
-              <label class="form-label" for="typeNumber">Kui palju saad iga kuu lisada?
+              <label class="form-label fw-bold">Kolmas arv
               </label>
-              <input type="number" id="typeNumber" class="form-control" name="toode3" />
+              <input type="number" class="form-control" name="toode3">
           </div>
       </div>
-      <input type="submit" value="Arvuta">
+      </div>
       <div class="form-check d-flex justify-content-center pt-2">
-        <input class="form-check-input" type="checkbox" value="agree" id="agree">
+        <input class="form-check-input" type="checkbox" value="agree" id="agree" name="agree">
         <label class="form-check-label" for="agree">
-          Nõustun kasutajatingimustega
+         Arvutamine tekitab tervisekahjustusi
         </label>
       </div>
+      <div class="row">
+      <div class="col text-center pt-5">
+      <input type="submit" value="Arvuta" name="arvuta">
+      </div>
+      </div>
     </form>
-
+    <div class="row">
+      <div class="col">
+      </div>
+    </div>
+    </div>
     <?php
-if (!empty($_GET['toode1']) &&
-!empty($_GET['toode2']) &&
-!empty($_GET['toode3'])) {
-    # code...
+    if(isset($_GET['arvuta'])) {
+if( !empty($_GET['agree']) && !empty($_GET['toode1']) && !empty($_GET['toode2']) && !empty($_GET['toode3'])) {
 
-//  GETiga saatsin, GETiga võtan
-$toode1 = $_GET['toode1'];
-$toode2 = $_GET['toode2'];
-$toode3 = $_GET['toode3'];
-$kokku = $toode1 + $toode2 + $toode3;
+    $toode1 = $_GET['toode1'];
+    $toode2 = $_GET['toode2']; 
+    $toode3 = $_GET['toode3'];
+    
+    $summa = $toode1 + $toode2 + $toode3;
+    echo "<div class='row justify-content-center pt-2'>";
+        echo "<div class='col-sm-3 text-center'>";
+        echo "<span style='color: green;'>Esimene arv: $toode1</span> <br>";
+        echo "<span style='color: blue;'>Teine arv: $toode2</span> <br>";
+        echo "<span style='color: red;'>Kolmas arv: $toode3</span> <br>";
+        echo "</div>";
 
-echo $toode1. "<br>";
-echo $toode2. "<br>";
-echo $toode3. "<br>";
-
-echo "Toode1: $toode1 tk<br>";
-echo "Toode1: $toode2 tk<br>";
-echo "Toode1: $toode3 tk<br>";
-echo "Kõik kokku: $kokku tk";
+    echo "<div class='row justify-content-center pt-2'>";
+    echo "<div class='col-sm-3 text-center'>";
+    echo "<div class='alert alert-success' role='alert'>";
+    echo "Teie kolmemõõtmeline arv on:  " . $summa;
+    "</div>";
+    "</div>";
+    "</div>";
+  
+} else {
+    echo "<div class='row justify-content-center pt-2'>";
+    echo "<div class='col-sm-3 text-center'>";
+    echo "<div class='alert alert-danger' role='alert'>";
+    echo "Palun täitke kõik väljad ja nõustuge tervisekahjustustega.";
+    "</div>";
+    "</div>";
+    "</div>";
 }
-
+}
 ?>
 
-
-<?php
 </body>
+</html>
