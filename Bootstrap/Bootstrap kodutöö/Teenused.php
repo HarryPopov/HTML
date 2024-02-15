@@ -8,7 +8,6 @@
 </head>
 <body>
   <div class="container">
-  <div class="Container">
     <div class="row align-items-start">
       <div class="col sm-6">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
@@ -78,7 +77,7 @@
     <div class="row justify-content-center pt-5">
         <div class="col-sm-2 text-center">
             <div class="form-outline">
-            <label class="form-label fw-bold" for="toode1">Esimene mõõde
+            <label class="form-label fw-bold" for="toode1">Esimene arv
             </label>
 <input type="number" id="toode1" class="form-control" name="toode1">
             </div>
@@ -87,7 +86,7 @@
     <div class="row justify-content-center pt-3">
       <div class="col-sm-2 text-center">
           <div class="form-outline">
-       <label class="form-label fw-bold" for="toode2">Teine mõõde
+       <label class="form-label fw-bold" for="toode2">Teine arv
           </label>
 <input type="number" id="toode2" class="form-control" name="toode2">
           </div>
@@ -96,7 +95,7 @@
 <div class="row justify-content-center pt-3">
       <div class="col-sm-2 text-center">
           <div class="form-outline">
-          <label class="form-label fw-bold" for="toode3">Kolmas mõõde
+          <label class="form-label fw-bold" for="toode3">Kolmas arv
           </label>
 <input type="number" id="toode3" class="form-control" name="toode3">
           </div>
@@ -117,8 +116,6 @@
     <div class="row">
       <div class="col">
       </div>
-    </div>
-    </div>
     </div>
     <?php
     if(isset($_GET['arvuta'])) {
@@ -155,6 +152,6 @@ if( !empty($_GET['agree']) && !empty($_GET['toode1']) && !empty($_GET['toode2'])
 }
 }
 ?>
-
+</div>
 </body>
 </html>
