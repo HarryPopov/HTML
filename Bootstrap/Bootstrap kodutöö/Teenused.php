@@ -56,10 +56,10 @@
               <a class="nav-link" href="#">Tooted</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Teenused</a>
+              <a class="nav-link" href="teenused.php">Teenused</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Kontakt</a>
+              <a class="nav-link" href="kontakt.php">Kontakt</a>
             </li>
             <li class="nav-item">
               <button type="button" class="btn btn-primary">Login</button>
