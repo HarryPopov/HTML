@@ -68,18 +68,55 @@
         </div>
       </nav>
     </div>
-    <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-  <div class="progress-bar bg-success" style="width: 25%">25%</div>
-</div>
-<div class="progress" role="progressbar" aria-label="Info example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-  <div class="progress-bar bg-info text-dark" style="width: 50%">50%</div>
-</div>
-<div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-  <div class="progress-bar bg-warning text-dark" style="width: 75%">75%</div>
-</div>
-<div class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-  <div class="progress-bar bg-danger" style="width: 100%">100%</div>
-</div>
     </div>
+    <div class="container col-md-6 text-center">
+      <H1>Minu oskused</H1>
+      <?php
+function headmotted(){
+  $oskus = array("PHP", "HTML", "CSS", "Bootstrap");
+  $varv = array("bg-primary", "bg-secondary", "bg-success", "bg-danger", "bg-warning", "bg-info", "bg-dark");
+
+  echo '<div class="progress mb-2" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar ' . $varv[array_rand($varv)] . ' " style="width: ' . rand(10,100) . '%">'. $oskus[0] .'</div>
+</div>';
+echo '<div class="progress mb-2" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar ' . $varv[array_rand($varv)] . ' " style="width: ' . rand(10,100) . '%">'. $oskus[1] .'</div>
+</div>';
+echo '<div class="progress mb-2" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar ' . $varv[array_rand($varv)] . ' " style="width: ' . rand(10,100) . '%">'. $oskus[2] .'</div>
+</div>';
+echo '<div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar ' . $varv[array_rand($varv)] . ' " style="width: ' . rand(10,100) . '%">'. $oskus[3] .'</div>
+</div><br>';
+}
+
+headmotted();
+?>
+</div>
+</div>
+<div class="container text-center">
+<h3>Meie töötajad</h3>
+
+<div class="container">
+
+    <?php
+    $dirname = "img/";
+    $images = glob($dirname . "*.jpg");
+    foreach ($images as $pilt) {
+
+      $nimi = pathinfo($pilt, PATHINFO_FILENAME);
+
+      $nimi = ucfirst($nimi);
+
+      $email = $nimi . "@email.ee";
+      
+        echo '<div style="display: inline-block; margin-right: 10px;">';
+        echo '<img src="' . $pilt . '" alt="#" style="width: 150px; height: 150px;">';
+        echo '<div>' . $nimi . '<br>' . $email . '</div>';
+        echo '</div>';
+    }
+    ?>
+</div>
+</div>
 </body>
 </html>
